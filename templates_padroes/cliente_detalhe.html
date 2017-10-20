@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}
+  {{object.nome}}
+{% endblock %}
+
+{% block main %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <h3>Alterar cliente</h3>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-6">
+        <form method="post">
+          {% csrf_token %}
+          {{form|bootstrap}}
+          <button class="btn btn-info" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar</button>
+          <a class="btn btn-danger" style="color: white;" href="{% url 'cliente_delete' object.id %}" title="Excluir"><i class="fa fa-trash" aria-hidden="true"> Excluir</i></a>
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <div style="margin-top: 2%;" class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <a style="color: white;" href="{% url 'cliente_principal'%}"><i class="fa fa-arrow-left" aria-hidden="true"> Voltar</i></a>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
